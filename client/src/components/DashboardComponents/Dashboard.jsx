@@ -13,7 +13,8 @@ class Dashboard extends React.Component {
     super();
     this.state = {
       hoaId: localStorage.getItem("hoaId"),
-      homeowners: []
+      homeowners: [],
+      hoaInfo: JSON.parse(localStorage.getItem("hoaInfo"))
     };
     this.getAllMembers = this.getAllMembers.bind(this);
   }
@@ -52,7 +53,9 @@ class Dashboard extends React.Component {
         <Row>
           <Col md={{ size: 12 }} className="mt-4">
             <h1>SimpleHOA</h1>
-            {/* <span className="ml-4">You are logged in as </span> */}
+            <span className="ml-4">
+              You are logged in as {this.state.hoaInfo.name}
+            </span>
             <DBFinancials
               allRevenues={allRevenues}
               allExpenses={allExpenses}
