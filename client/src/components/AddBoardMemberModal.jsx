@@ -80,7 +80,6 @@ class AddBoardModal extends React.Component {
                     value={position}
                   >
                     <option value="">Select A Position</option>
-                    <option value="Emperor">Emperor</option>
                     <option value="Secretary">Secretary</option>
                     <option value="President">President</option>
                     <option value="Vice President">Vice President</option>
@@ -88,22 +87,20 @@ class AddBoardModal extends React.Component {
                   </select>
                 </Col>
               </FormGroup>
-              <Button type="submit" color="success">
-                Add BoardMember
-              </Button>{" "}
+              <FormGroup className="mt-3">
+                <Button type="submit" color="success">
+                  Add BoardMember
+                </Button>{" "}
+                <Button
+                  color="secondary"
+                  onClick={() => toggleModal("showAddModal")}
+                  className="float-right"
+                >
+                  Cancel
+                </Button>
+              </FormGroup>
             </Form>
           </ModalBody>
-          <ModalFooter>
-            <Col></Col>
-            <Col>
-              <Button
-                color="secondary"
-                onClick={() => toggleModal("showAddModal")}
-              >
-                Cancel
-              </Button>
-            </Col>
-          </ModalFooter>
         </Modal>
       </div>
     );

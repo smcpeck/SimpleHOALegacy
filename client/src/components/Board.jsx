@@ -1,5 +1,5 @@
 import React from "react";
-import AddBoardMemberModal from './AddBoardMemberModal.jsx';
+import AddBoardMemberModal from "./AddBoardMemberModal.jsx";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Container, Col, Row, Table, Button } from "reactstrap";
@@ -21,7 +21,6 @@ class Board extends React.Component {
     this.addBoardMember = this.addBoardMember.bind(this);
   }
 
-
   componentDidMount() {
     const { hoaId } = this.state;
     axios.get(`/api/getHomeowners/${hoaId}`).then(homeowners =>
@@ -29,21 +28,22 @@ class Board extends React.Component {
         homeowners: homeowners.data
       })
     );
-  }  
+  }
 
   handleDelete(selectedBoardMember) {
     console.log(selectedBoardMember);
     return axios
-      .delete(`api/deleteBoardMember/${selectedBoardMember.id}/${selectedBoardMember.homeOwner.id}`)
+      .delete(
+        `api/deleteBoardMember/${selectedBoardMember.id}/${selectedBoardMember.homeOwner.id}`
+      )
       .then(res => {
         console.log("The board member was fired.", res.data);
         if (res.data.isDeleted) {
           this.props.getAllBoardMembers();
         }
-        return Swal.fire(`The board member was fired.`);
+        return Swal.fire(`The ${selectedBoardMember.position} was fired.`);
       })
-      .catch(err => 
-        console.error("The Homeowner was not removed.", err));
+      .catch(err => console.error("The Homeowner was not removed.", err));
   }
 
   toggleModal(state) {
@@ -51,32 +51,41 @@ class Board extends React.Component {
   }
 
   addBoardMember(boardMemberData) {
-    delete boardMemberData.homeowners
-    console.log('hhhhhh', boardMemberData)
-    
-    axios.post("/api/addBoardMember", boardMemberData).then(res => {
-      if (res.data.isAdded) {
-        this.setState({ showAddModal: false }, () => this.props.getAllBoardMembers());
-      }
-      return Swal.fire(`The home owner was added to the Board.`);
-    }).catch(err => console.log('error adding homeowner', err));
-    
+    delete boardMemberData.homeowners;
+    console.log("hhhhhh", boardMemberData);
+
+    axios
+      .post("/api/addBoardMember", boardMemberData)
+      .then(res => {
+        if (res.data.isAdded) {
+          this.setState({ showAddModal: false }, () =>
+            this.props.getAllBoardMembers()
+          );
+        }
+        return Swal.fire(`The home owner was added to the Board.`);
+      })
+      .catch(err => console.log("error adding homeowner", err));
   }
 
   render() {
-    console.log('BOARD PROPS', this.props);
+    console.log("BOARD PROPS", this.props);
     const { showAddModal, homeowners } = this.state;
     const { boardMembers } = this.props;
     return (
       <Container className="mt-4">
-        <AddBoardMemberModal addBoardMember={this.addBoardMember} homeowners={homeowners} showModal={showAddModal} toggleModal={this.toggleModal} />
+        <AddBoardMemberModal
+          addBoardMember={this.addBoardMember}
+          homeowners={homeowners}
+          showModal={showAddModal}
+          toggleModal={this.toggleModal}
+        />
         <h1>Board Members</h1>
 
         <Button
           className="float-right mb-4 btn-custom"
           size="sm"
           color="success"
-          onClick={() => this.toggleModal('showAddModal')}
+          onClick={() => this.toggleModal("showAddModal")}
         >
           Add Board Member
         </Button>
@@ -99,7 +108,7 @@ class Board extends React.Component {
                   <th className="th-sm th-text">Address</th>
                   <th className="th-sm th-text">Phone</th>
                   <th className="th-sm th-text">Email</th>
-                  <th className="th-sm th-text">Delete</th>
+                  <th className="th-sm th-text"></th>
                 </tr>
               </thead>
               <tbody>
@@ -108,13 +117,27 @@ class Board extends React.Component {
                     <tr key={boardMember.homeOwner.id}>
                       <td className="td-sm td-text">{boardMember.position}</td>
                       <td className="td-sm td-text">{`${boardMember.homeOwner.firstName} ${boardMember.homeOwner.lastName}`}</td>
-                      <td className="td-sm td-text">{boardMember.homeOwner.address}</td>
-                      <td className="td-sm td-text">{boardMember.homeOwner.phone}</td>
-                      <td className="td-sm td-text">{boardMember.homeOwner.email}</td>
+                      <td className="td-sm td-text">
+                        {boardMember.homeOwner.address}
+                      </td>
+                      <td className="td-sm td-text">
+                        {boardMember.homeOwner.phone}
+                      </td>
+                      <td className="td-sm td-text">
+                        {boardMember.homeOwner.email}
+                      </td>
                       {/* <td className="td-sm td-text">Board Member</td> */}
-                      <td><button onClick={() => this.handleDelete(boardMember)}>Delete</button></td>
+                      <td>
+                        <Button
+                          color="danger"
+                          onClick={() => this.handleDelete(boardMember)}
+                          size="sm"
+                        >
+                          Delete
+                        </Button>
+                      </td>
                     </tr>
-                  )
+                  );
                 })}
               </tbody>
             </Table>

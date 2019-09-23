@@ -46,7 +46,7 @@ class DBChart extends Component {
           maintainAspectRatio: false,
           title: {
             display: true,
-            text: "September financials",
+            text: "Year-To-Date financials",
             fontSize: 18,
             position: "top"
           },

@@ -34,7 +34,7 @@ class MemberModal extends React.Component {
   }
 
   render() {
-    const { homeowner } = this.props;
+    const { homeOwner } = this.props;
 
     return (
       <div>
@@ -46,22 +46,22 @@ class MemberModal extends React.Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>{homeowner.fullName}</ModalHeader>
+          <ModalHeader toggle={this.toggle}>{homeOwner.fullName}</ModalHeader>
           <ModalBody>
             <Row>
               <Col className="border-right" sm={{ size: 6 }} lg={{ size: 4 }}>
                 <h6>Address</h6>
                 <p>
-                  {homeowner.address} <br />
-                  {homeowner.city}, {homeowner.state} {homeowner.zipcode}
+                  {homeOwner.address} <br />
+                  {homeOwner.city}, {homeOwner.state} {homeOwner.zipcode}
                 </p>
                 <h6>Phone</h6>
-                <p>Cell: {homeowner.phone}</p>
+                <p>Cell: {homeOwner.phone}</p>
               </Col>
               <Col>
-                <h4>Balance: ${homeowner.balanceDue}</h4>
+                <h4>Balance: ${homeOwner.balanceDue}</h4>
                 <hr />
-                <p>Monthly Dues: ${homeowner.monthlyDues}</p>
+                <p>Monthly Dues: ${homeOwner.monthlyDues}</p>
               </Col>
             </Row>
           </ModalBody>
