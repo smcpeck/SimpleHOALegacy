@@ -135,12 +135,12 @@ class AddMemberModal extends React.Component {
                   />
                 </Col>
               </FormGroup>
+              <Button type="submit" color="success">
+                Add HomeOwner
+              </Button>{" "}
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button type="submit" color="success">
-              Add HomeOwner
-            </Button>{" "}
             <Button
               color="secondary"
               onClick={() => toggleModal("showAddModal")}
