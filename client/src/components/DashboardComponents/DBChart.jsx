@@ -11,7 +11,7 @@ class DBChart extends Component {
         datasets: [
           {
             label: "Monthly financials ",
-            data: [],
+            data: [100, 100],
             backgroundColor: ["#5cb85c", "#d9534f"]
           }
         ]
@@ -28,7 +28,7 @@ class DBChart extends Component {
         datasets: [
           {
             label: "Monthly financials ",
-            data: [allRevenues, allExpenses],
+            data: [allRevenues.totalTD, allExpenses.totalTD],
             backgroundColor: ["#5cb85c", "#d9534f"]
           }
         ]

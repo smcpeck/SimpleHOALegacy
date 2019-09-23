@@ -1,5 +1,15 @@
 import React from "react";
-import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from "reactstrap";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form,
+  FormGroup,
+  Col,
+  Input,
+  ModalFooter
+} from "reactstrap";
 
 class AddMemberModal extends React.Component {
   constructor(props) {
@@ -51,80 +61,84 @@ class AddMemberModal extends React.Component {
             Add HomeOwner
           </ModalHeader>
           <ModalBody>
-            {
-              <form onSubmit={this.handleAddHomeOwner}>
-                <center>
-                  <h2>Add Home Owner</h2>
-                  <br />
-
-                  <div className="subDiv">
-                    <h4>First Name:</h4>
-                    <br />
-                    <input
-                      id="firstName"
-                      type="text"
-                      onChange={this.handleInputChange}
-                      value={firstName}
-                    />
-                    <br />
-                    <br />
-                    <h4>Last Name:</h4>
-                    <br />
-                    <input
-                      id="lastName"
-                      type="text"
-                      onChange={this.handleInputChange}
-                      value={lastName}
-                    />
-                    <br />
-                    <br />
-                    <h4>Email:</h4>
-                    <br />
-                    <input
-                      id="email"
-                      type="text"
-                      onChange={this.handleInputChange}
-                      value={email}
-                    />
-                    <br />
-                    <br />
-                    <h4>Phone:</h4>
-                    <br />
-                    <input
-                      id="phone"
-                      type="text"
-                      onChange={this.handleInputChange}
-                      value={phone}
-                    />
-                    <br />
-                    <br />
-                    <h4>Address:</h4>
-                    <br />
-                    <input
-                      id="address"
-                      type="text"
-                      onChange={this.handleInputChange}
-                      value={address}
-                    />
-                    <br />
-                    <br />
-                    <h4>Monthly Dues:</h4>
-                    <br />
-                    <input
-                      id="monthlyDues"
-                      type="text"
-                      onChange={this.handleInputChange}
-                      value={monthlyDues}
-                    />
-                    <br />
-                    <br />
-                    <Button type="submit" color="danger">
-                      Add HomeOwner
-                    </Button>{" "}
-                  </div>
-                </center>
-              </form>
-            }
+            <Form onSubmit={this.handleAddHomeOwner}>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="firstName"
+                    type="text"
+                    onChange={this.handleInputChange}
+                    value={firstName}
+                    placeholder="First Name"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="lastName"
+                    type="text"
+                    onChange={this.handleInputChange}
+                    value={lastName}
+                    placeholder="Last Name"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  {" "}
+                  <Input
+                    id="email"
+                    type="email"
+                    onChange={this.handleInputChange}
+                    value={email}
+                    placeholder="email"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    onChange={this.handleInputChange}
+                    value={phone}
+                    placeholder="Phone"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="address"
+                    type="text"
+                    onChange={this.handleInputChange}
+                    value={address}
+                    placeholder="Street Address"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="monthlyDues"
+                    type="text"
+                    onChange={this.handleInputChange}
+                    value={monthlyDues}
+                    placeholder="Monthly Dues"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <Button type="submit" color="success">
+                Add HomeOwner
+              </Button>{" "}
+            </Form>
           </ModalBody>
           <ModalFooter>
             <Button
