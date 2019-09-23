@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Button } from "reactstrap";
 import axios from "axios";
+import moment from "moment";
 const { GOOGLE_API_KEY } = process.env;
 
 class DBCalendar extends Component {
@@ -41,7 +42,13 @@ class DBCalendar extends Component {
                     <h6>{event.summary}</h6>
                   </div>
                   <div>
-                    <h6> {event.start.dateTime.slice(5, 10)}</h6>
+                    <h6>
+                      {" "}
+                      {moment(
+                        event.start.dateTime.slice(5, 10),
+                        "MM-DD"
+                      ).format("MMMM Do")}
+                    </h6>
                   </div>
                 </Col>
                 <Col>
