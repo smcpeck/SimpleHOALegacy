@@ -18,7 +18,7 @@ export default class Login extends Component {
         localStorage.setItem('uid', firebaseId)
         axios.get(`/checkForUser/${firebaseId}`)
           .then((res) => {
-            console.log("========data", res.data);
+            // console.log("========data", res.data);
             if (res.data.registered) {
               localStorage.setItem('hoaId', res.data.hoaInfoFromDb.id);
               localStorage.setItem('hoaInfo', JSON.stringify(res.data.hoaInfoFromDb));
