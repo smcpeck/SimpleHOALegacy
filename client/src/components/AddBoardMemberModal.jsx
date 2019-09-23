@@ -80,7 +80,6 @@ class AddBoardModal extends React.Component {
                     value={position}
                   >
                     <option value="">Select A Position</option>
-                    <option value="Emperor">Emperor</option>
                     <option value="Secretary">Secretary</option>
                     <option value="President">President</option>
                     <option value="Vice President">Vice President</option>
