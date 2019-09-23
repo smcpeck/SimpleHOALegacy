@@ -176,7 +176,7 @@ class AddMemberModal extends React.Component {
               </FormGroup>
               <Button type="submit" color="success">
                 Add HomeOwner
-            </Button>{" "}
+              </Button>{" "}
             </Form>
           </ModalBody>
           <ModalFooter>
