@@ -1,21 +1,29 @@
-import React from 'react';
+import React from "react";
 import axios from "axios";
-import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from 'reactstrap';
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form,
+  FormGroup,
+  Col,
+  Input,
+  ModalFooter
+} from "reactstrap";
 
 class AddBoardModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hoaId: localStorage.getItem('hoaId'),
-      accountId: '',
-      position: '',
-
-    }
+      hoaId: localStorage.getItem("hoaId"),
+      accountId: "",
+      position: ""
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleAddBoardMember = this.handleAddBoardMember.bind(this);
   }
-
 
   handleInputChange(event) {
     this.setState({ [event.target.id]: event.target.value });
@@ -23,8 +31,10 @@ class AddBoardModal extends React.Component {
 
   handleAddBoardMember(event) {
     event.preventDefault();
-    const {accountId, position, hoaId} = this.state;
-    this.setState({ accountId: '', position: '' }, () => this.props.addBoardMember({accountId, position, hoaId}));
+    const { accountId, position, hoaId } = this.state;
+    this.setState({ accountId: "", position: "" }, () =>
+      this.props.addBoardMember({ accountId, position, hoaId })
+    );
   }
 
   render() {
@@ -35,24 +45,40 @@ class AddBoardModal extends React.Component {
       <div>
         <Modal
           isOpen={showModal}
-          toggle={() => toggleModal('showAddModal')}
+          toggle={() => toggleModal("showAddModal")}
           className={this.props.className}
         >
-          <ModalHeader toggle={() => toggleModal('showAddModal')}>Add BoardMember</ModalHeader>
+          <ModalHeader toggle={() => toggleModal("showAddModal")}>
+            Add BoardMember
+          </ModalHeader>
           <ModalBody>
-            {<form onSubmit={this.handleAddBoardMember}>
-              <center><h2>Add Board Member</h2><br />
-
-                <div className='subDiv'>
-                  <h4>First Name:</h4><br />
-                  <select required id="accountId" onChange={this.handleInputChange} value={accountId} >
-                    <option value="">Select An Account</option>
-                    {homeowners && homeowners.map(homeowner => <option value={homeowner.id}>{homeowner.fullName}</option>)}
+            <Form onSubmit={this.handleAddBoardMember}>
+              <FormGroup row>
+                <Col>
+                  <select
+                    required
+                    id="accountId"
+                    onChange={this.handleInputChange}
+                    value={accountId}
+                  >
+                    <option value="">Select a Member</option>
+                    {homeowners &&
+                      homeowners.map(homeowner => (
+                        <option value={homeowner.id}>
+                          {homeowner.fullName}
+                        </option>
+                      ))}
                   </select>
-                  <br /><br />
-
-                  <h4>Last Name:</h4><br />
-                  <select required id="position" onChange={this.handleInputChange} value={position} >
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <select
+                    required
+                    id="position"
+                    onChange={this.handleInputChange}
+                    value={position}
+                  >
                     <option value="">Select A Position</option>
                     <option value="Emperor">Emperor</option>
                     <option value="Secretary">Secretary</option>
@@ -60,24 +86,27 @@ class AddBoardModal extends React.Component {
                     <option value="Vice President">Vice President</option>
                     <option value="Treasurer">Treasurer</option>
                   </select>
-                  <br /><br />
-
-                  <Button type="submit" color="primary"
-                  >
-                    Add BoardMember
-            </Button>{" "}
-                </div>
-              </center>
-            </form>}
+                </Col>
+              </FormGroup>
+              <Button type="submit" color="success">
+                Add BoardMember
+              </Button>{" "}
+            </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="danger" onClick={() => toggleModal('showAddModal')}>
-              Cancel
-            </Button>
+            <Col></Col>
+            <Col>
+              <Button
+                color="secondary"
+                onClick={() => toggleModal("showAddModal")}
+              >
+                Cancel
+              </Button>
+            </Col>
           </ModalFooter>
         </Modal>
       </div>
-    )
+    );
   }
 }
 
