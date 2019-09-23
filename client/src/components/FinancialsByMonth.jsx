@@ -8,7 +8,60 @@ class FinancialsByMonth extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartData: {},
+      chartData: {
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ],
+        datasets: [
+          {
+            label: "Deposits",
+            data: [
+              924,
+              576,
+              1223,
+              3000,
+              2500,
+              1000,
+              943,
+              756,
+              2975,
+              2432,
+              1700,
+              1600
+            ],
+            backgroundColor: "#5cb85c"
+          },
+          {
+            label: "Expenses",
+            data: [
+              865,
+              922,
+              455,
+              700,
+              600,
+              340,
+              1200,
+              200,
+              340,
+              567,
+              1000,
+              687
+            ],
+            backgroundColor: "#d9534f"
+          }
+        ]
+      },
       allRevenues: {
         totalTD: 0
       },
@@ -189,45 +242,16 @@ class FinancialsByMonth extends Component {
 
   //this sets the state to bring in the results of the above functions
   mapFinancialsToChart(expenses, revenues) {
-    this.setState({
-      chartData: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December"
-        ],
-        datasets: [
-          {
-            label: "Deposits",
-            data: revenues,
-            backgroundColor: "#5cb85c"
-          },
-          {
-            label: "Expenses",
-            data: expenses,
-            backgroundColor: "#d9534f"
-          }
-        ]
-      }
-    });
+    this.setState({});
   }
 
   render(props) {
     const { allExpenses, allRevenues } = this.state;
-    let mappedRevenues = this.getRevenueData(allRevenues[2019]);
+    // let mappedRevenues = this.getRevenueData(allRevenues[2019]);
 
-    let mappedExpenses = this.getExpenseData(allExpenses[2019]);
-    console.log("mapped expenses: ", mappedExpenses);
-    console.log("mapped revenues: ", mappedRevenues);
+    // let mappedExpenses = this.getExpenseData(allExpenses[2019]);
+    // console.log("mapped expenses: ", mappedExpenses);
+    // console.log("mapped revenues: ", mappedRevenues);
     // this.mapFinancialsToChart(mappedExpenses, mappedRevenues);
     return (
       // <div className="chart mb-2">
