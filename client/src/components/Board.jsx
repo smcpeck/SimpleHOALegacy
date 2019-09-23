@@ -97,7 +97,7 @@ class Board extends React.Component {
                   <th className="th-sm th-text">Position</th>
                   <th className="th-sm th-text">Name</th>
                   <th className="th-sm th-text">Address</th>
-                  <th className="th-sm th-text">Primary Phone</th>
+                  <th className="th-sm th-text">Phone</th>
                   <th className="th-sm th-text">Email</th>
                   <th className="th-sm th-text">Delete</th>
                 </tr>
