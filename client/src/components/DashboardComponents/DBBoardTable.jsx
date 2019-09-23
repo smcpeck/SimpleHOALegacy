@@ -34,7 +34,7 @@ const DBBoardTable = ({boardMembers}) => {
       <p>{treasurer && `${treasurer.homeOwner.firstName} ${treasurer.homeOwner.lastName}`}</p>
       <hr />
       <hr />
-      <Button tag={Link} to="/board" size="sm" className="btn-custom">>Edit Board</Button>
+      <Button tag={Link} to="/board" size="sm" className="btn-custom">Edit Board</Button>
     </div>
   );
 };
