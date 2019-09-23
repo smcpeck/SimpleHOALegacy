@@ -77,7 +77,7 @@ class MemberList extends React.Component {
           this.setState({
             homeOwners: homeOwners.filter(homeowner => homeowner.id !== id)
           });
-          return Swal.fire(`The home owner is no longer welcome here.`);
+          return Swal.fire(`This person is no longer welcome here.`);
         }
       })
       .catch(err => console.error("The Homeowner was not removed.", err));
