@@ -64,7 +64,7 @@ const DBBoardTable = ({ boardMembers }) => {
       </p>
       <hr />
       <Button tag={Link} to="/board" size="sm" className="btn-custom">
-        >Edit Board
+        Edit Board
       </Button>
     </div>
   );
