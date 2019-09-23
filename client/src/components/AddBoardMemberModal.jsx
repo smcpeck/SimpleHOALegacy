@@ -62,7 +62,7 @@ class AddBoardModal extends React.Component {
                   </select>
                   <br /><br />
 
-                  <Button type="submit" color="danger"
+                  <Button type="submit" color="primary"
                   >
                     Add BoardMember
             </Button>{" "}
@@ -71,7 +71,7 @@ class AddBoardModal extends React.Component {
             </form>}
           </ModalBody>
           <ModalFooter>
-            <Button color="secondary" onClick={() => toggleModal('showAddModal')}>
+            <Button color="danger" onClick={() => toggleModal('showAddModal')}>
               Cancel
             </Button>
           </ModalFooter>
