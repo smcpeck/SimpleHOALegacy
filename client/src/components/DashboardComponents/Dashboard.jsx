@@ -50,7 +50,9 @@ class Dashboard extends React.Component {
     return (
       <Container>
         <Row>
-          <Col md={{ size: 12 }}>
+          <Col md={{ size: 12 }} className="mt-4">
+            <h1>SimpleHOA</h1>
+            {/* <span className="ml-4">You are logged in as </span> */}
             <DBFinancials
               allRevenues={allRevenues}
               allExpenses={allExpenses}
