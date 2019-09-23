@@ -37,6 +37,9 @@ class AddMemberModal extends React.Component {
       email,
       phone,
       address,
+      city,
+      state,
+      zipcode,
       monthlyDues
     } = this.state;
     const { showModal, toggleModal } = this.props;
@@ -59,7 +62,6 @@ class AddMemberModal extends React.Component {
 
                   <div className="subDiv">
                     <h4>First Name:</h4>
-                    <br />
                     <input
                       id="firstName"
                       type="text"
@@ -67,9 +69,7 @@ class AddMemberModal extends React.Component {
                       value={firstName}
                     />
                     <br />
-                    <br />
                     <h4>Last Name:</h4>
-                    <br />
                     <input
                       id="lastName"
                       type="text"
@@ -77,9 +77,7 @@ class AddMemberModal extends React.Component {
                       value={lastName}
                     />
                     <br />
-                    <br />
                     <h4>Email:</h4>
-                    <br />
                     <input
                       id="email"
                       type="text"
@@ -87,9 +85,7 @@ class AddMemberModal extends React.Component {
                       value={email}
                     />
                     <br />
-                    <br />
                     <h4>Phone:</h4>
-                    <br />
                     <input
                       id="phone"
                       type="text"
@@ -97,9 +93,7 @@ class AddMemberModal extends React.Component {
                       value={phone}
                     />
                     <br />
-                    <br />
                     <h4>Address:</h4>
-                    <br />
                     <input
                       id="address"
                       type="text"
@@ -107,9 +101,31 @@ class AddMemberModal extends React.Component {
                       value={address}
                     />
                     <br />
+                    <h4>City:</h4>
+                    <input
+                      id="city"
+                      type="text"
+                      onChange={this.handleInputChange}
+                      value={city}
+                    />
+                    <br />
+                    <h4>State:</h4>
+                    <input
+                      id="state"
+                      type="text"
+                      onChange={this.handleInputChange}
+                      value={state}
+                    />
+                    <br />
+                    <h4>Zipcode:</h4>
+                    <input
+                      id="zipcode"
+                      type="text"
+                      onChange={this.handleInputChange}
+                      value={zipcode}
+                    />
                     <br />
                     <h4>Monthly Dues:</h4>
-                    <br />
                     <input
                       id="monthlyDues"
                       type="text"
@@ -118,7 +134,7 @@ class AddMemberModal extends React.Component {
                     />
                     <br />
                     <br />
-                    <Button type="submit" color="danger">
+                    <Button type="submit" color="primary">
                       Add HomeOwner
                     </Button>{" "}
                   </div>
@@ -128,7 +144,7 @@ class AddMemberModal extends React.Component {
           </ModalBody>
           <ModalFooter>
             <Button
-              color="secondary"
+              color="danger"
               onClick={() => toggleModal("showAddModal")}
             >
               Cancel
