@@ -22,7 +22,15 @@ class DBFinancials extends Component {
   handleClick() {}
 
   render() {
-    const { allExpenses, allRevenues, makeDeposit } = this.props;
+    const {
+      allExpenses,
+      allRevenues,
+      makeDeposit,
+      getAllExpenses,
+      getAllExpensesByYear,
+      getAllRevenues,
+      getAllRevenuesByYear
+    } = this.props;
     return (
       <div className="dashboard-card mb-4 p-4 mt-4">
         <Row>
@@ -65,8 +73,20 @@ class DBFinancials extends Component {
                     allExpenses={allExpenses}
                     allRevenues={allRevenues}
                     makeDeposit={makeDeposit}
+                    getAllExpenses={getAllExpenses}
+                    getAllExpensesByYear={getAllExpensesByYear}
+                    getAllRevenues={getAllRevenues}
+                    getAllRevenuesByYear={getAllRevenuesByYear}
                   />
-                  <ExpenseModal />
+                  <ExpenseModal
+                    allExpenses={allExpenses}
+                    allRevenues={allRevenues}
+                    makeDeposit={makeDeposit}
+                    getAllExpenses={getAllExpenses}
+                    getAllExpensesByYear={getAllExpensesByYear}
+                    getAllRevenues={getAllRevenues}
+                    getAllRevenuesByYear={getAllRevenuesByYear}
+                  />
                 </div>
               </Col>
             </Row>

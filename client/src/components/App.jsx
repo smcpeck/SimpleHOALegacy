@@ -310,7 +310,11 @@ class App extends React.Component {
                   getOpenWorkTickets={this.getOpenWorkTickets}
                   allRevenues={allRevenues}
                   allExpenses={allExpenses}
+                  getAllRevenues={this.getAllRevenues}
+                  getAllRevenuesByYear={this.getAllRevenuesByYear}
                   makeDeposit={this.makeDeposit}
+                  getAllExpenses={this.getAllExpenses}
+                  getAllExpensesByYear={this.getAllExpensesByYear}
                 />
               )}
             />
