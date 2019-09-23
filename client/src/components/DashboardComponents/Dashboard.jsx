@@ -45,7 +45,11 @@ class Dashboard extends React.Component {
       hoaId,
       boardMembers,
       getOpenWorkTickets,
-      makeDeposit
+      makeDeposit,
+      getAllExpenses,
+      getAllExpensesByYear,
+      getAllRevenues,
+      getAllRevenuesByYear
     } = this.props;
     const { homeowners } = this.state;
     return (
@@ -60,6 +64,10 @@ class Dashboard extends React.Component {
               allRevenues={allRevenues}
               allExpenses={allExpenses}
               makeDeposit={makeDeposit}
+              getAllExpenses={getAllExpenses}
+              getAllExpensesByYear={getAllExpensesByYear}
+              getAllRevenues={getAllRevenues}
+              getAllRevenuesByYear={getAllRevenuesByYear}
             />
           </Col>
           <Col md={{ size: 6 }}>

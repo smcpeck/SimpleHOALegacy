@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { Table, Button, Row, Col, Container } from "reactstrap";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import EditMemberModal from "./EditMemberModal.jsx";
 import AddMemberModal from "./AddMemberModal.jsx";
+import MemberModal from "./MemberModal.jsx";
 
 class MemberList extends React.Component {
   constructor(props) {
@@ -167,33 +168,50 @@ class MemberList extends React.Component {
                   <th className="th-sm th-text">Phone</th>
                   <th className="th-sm th-text">Email</th>
                   <th className="th-sm th-text">Monthly Dues</th>
-                  <th className="th-sm th-text">Board Member</th>
-                  <th className="th-sm th-text">Edit</th>
-                  <th className="th-sm th-text">Delete</th>
+                  {/* <th className="th-sm th-text">Board Member</th> */}
+                  <th className="th-sm th-text"></th>
+                  <th className="th-sm th-text"></th>
                 </tr>
               </thead>
               <tbody>
                 {homeOwners.map(homeowner => {
                   return (
                     <tr key={homeowner.id}>
-                      <td className="td-sm table-text">{homeowner.firstName} {homeowner.lastName}</td>
+                      <td className="td-sm table-text">
+                        {homeowner.firstName} {homeowner.lastName}
+                      </td>
                       <td className="td-sm table-text">{homeowner.address}</td>
-                      <td className="td-sm table-text">{homeowner.city}, {homeowner.state} {homeowner.zipcode}</td>
+                      <td className="td-sm table-text">
+                        {homeowner.city}, {homeowner.state} {homeowner.zipcode}
+                      </td>
                       <td className="td-sm table-text">{homeowner.phone}</td>
                       <td className="td-sm table-text">{homeowner.email}</td>
-                      <td className="td-sm table-text">{homeowner.monthlyDues}</td>
                       <td className="td-sm table-text">
+                        ${homeowner.monthlyDues}
+                      </td>
+                      {/* <td className="td-sm table-text">
                         {homeowner.isBoardMember ? "Yes" : "No"}
-                      </td>
+                      </td> */}
+                      {/* <td>
+                        <MemberModal homeOwner={selectedHomeowner} />
+                      </td> */}
                       <td>
-                        <button onClick={() => this.handleEdit(homeowner)}>
+                        <Button
+                          color="success"
+                          size="sm"
+                          onClick={() => this.handleEdit(homeowner)}
+                        >
                           Edit
-                        </button>
+                        </Button>
                       </td>
                       <td>
-                        <button onClick={() => this.handleDelete(homeowner.id)}>
+                        <Button
+                          color="danger"
+                          size="sm"
+                          onClick={() => this.handleDelete(homeowner.id)}
+                        >
                           Delete
-                        </button>
+                        </Button>
                       </td>
                     </tr>
                   );

@@ -87,22 +87,20 @@ class AddBoardModal extends React.Component {
                   </select>
                 </Col>
               </FormGroup>
-              <Button type="submit" color="success">
-                Add BoardMember
-              </Button>{" "}
+              <FormGroup className="mt-3">
+                <Button type="submit" color="success">
+                  Add BoardMember
+                </Button>{" "}
+                <Button
+                  color="secondary"
+                  onClick={() => toggleModal("showAddModal")}
+                  className="float-right"
+                >
+                  Cancel
+                </Button>
+              </FormGroup>
             </Form>
           </ModalBody>
-          <ModalFooter>
-            <Col></Col>
-            <Col>
-              <Button
-                color="secondary"
-                onClick={() => toggleModal("showAddModal")}
-              >
-                Cancel
-              </Button>
-            </Col>
-          </ModalFooter>
         </Modal>
       </div>
     );
