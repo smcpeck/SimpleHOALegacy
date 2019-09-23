@@ -132,7 +132,7 @@ class AddMemberModal extends React.Component {
                     id="city"
                     type="text"
                     onChange={this.handleInputChange}
-                    value={address}
+                    value={city}
                     placeholder="City"
                     size="sm"
                   />
@@ -144,7 +144,7 @@ class AddMemberModal extends React.Component {
                     id="state"
                     type="text"
                     onChange={this.handleInputChange}
-                    value={address}
+                    value={state}
                     placeholder="State"
                     size="sm"
                   />
