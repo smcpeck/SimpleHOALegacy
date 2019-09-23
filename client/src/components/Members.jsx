@@ -77,7 +77,7 @@ class MemberList extends React.Component {
           this.setState({
             homeOwners: homeOwners.filter(homeowner => homeowner.id !== id)
           });
-          return Swal.fire(`The home owner is no longer welcome here.`);
+          return Swal.fire(`This person is no longer welcome here.`);
         }
       })
       .catch(err => console.error("The Homeowner was not removed.", err));
@@ -163,7 +163,8 @@ class MemberList extends React.Component {
                 <tr>
                   <th className="th-sm th-text">Name</th>
                   <th className="th-sm th-text">Address</th>
-                  <th className="th-sm th-text">Primary Phone</th>
+                  <th className="th-sm th-text">City, State, Zipcode</th>
+                  <th className="th-sm th-text">Phone</th>
                   <th className="th-sm th-text">Email</th>
                   <th className="th-sm th-text">Monthly Dues</th>
                   <th className="th-sm th-text">Board Member</th>
@@ -175,14 +176,12 @@ class MemberList extends React.Component {
                 {homeOwners.map(homeowner => {
                   return (
                     <tr key={homeowner.id}>
-                      <td className="td-sm table-text">{homeowner.fullName}</td>
+                      <td className="td-sm table-text">{homeowner.firstName} {homeowner.lastName}</td>
                       <td className="td-sm table-text">{homeowner.address}</td>
-
+                      <td className="td-sm table-text">{homeowner.city}, {homeowner.state} {homeowner.zipcode}</td>
                       <td className="td-sm table-text">{homeowner.phone}</td>
                       <td className="td-sm table-text">{homeowner.email}</td>
-                      <td className="td-sm table-text">
-                        {homeowner.monthlyDues}
-                      </td>
+                      <td className="td-sm table-text">{homeowner.monthlyDues}</td>
                       <td className="td-sm table-text">
                         {homeowner.isBoardMember ? "Yes" : "No"}
                       </td>

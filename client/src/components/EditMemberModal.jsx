@@ -1,15 +1,16 @@
 import React from "react";
 import {
-  Button,
   Modal,
-  ModalHeader,
   ModalBody,
+  ModalFooter,
+  ModalHeader,
+  Button,
   Form,
   FormGroup,
-  Col,
   Input,
-  ModalFooter
+  Col
 } from "reactstrap";
+
 class EditMemberModal extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +22,17 @@ class EditMemberModal extends React.Component {
       toggleModal,
       updateMember,
       handleMemberInput,
-      homeOwner: { firstName, lastName, email, phone, address, monthlyDues }
+      homeOwner: {
+        firstName,
+        lastName,
+        email,
+        phone,
+        address,
+        city,
+        state,
+        zipcode,
+        monthlyDues
+      }
     } = this.props;
     return (
       <div>
@@ -34,91 +45,123 @@ class EditMemberModal extends React.Component {
             Edit HomeOwner
           </ModalHeader>
           <ModalBody>
-            {firstName && (
-              <Form onSubmit={updateMember}>
-                <FormGroup row>
-                  <Col>
-                    <Input
-                      id="firstName"
-                      type="text"
-                      onChange={handleMemberInput}
-                      value={firstName}
-                      placeholder="First Name"
-                      size="sm"
-                    />
-                  </Col>{" "}
-                </FormGroup>
-                <FormGroup row>
-                  <Col>
-                    <Input
-                      id="lastName"
-                      type="text"
-                      onChange={handleMemberInput}
-                      value={lastName}
-                      placeholder="Last Name"
-                      size="sm"
-                    />
-                  </Col>
-                </FormGroup>{" "}
-                <FormGroup row>
-                  <Col>
-                    <Input
-                      id="email"
-                      type="text"
-                      onChange={handleMemberInput}
-                      value={email}
-                      placeholder="Email"
-                      size="sm"
-                    />
-                  </Col>
-                </FormGroup>
-                <FormGroup row>
-                  <Col>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      onChange={handleMemberInput}
-                      value={phone}
-                      placeholder="Phone"
-                      size="sm"
-                    />
-                  </Col>
-                </FormGroup>
-                <FormGroup row>
-                  <Col>
-                    <Input
-                      id="address"
-                      type="text"
-                      onChange={handleMemberInput}
-                      value={address}
-                      placeholder="Address"
-                      size="sm"
-                    />
-                  </Col>
-                </FormGroup>{" "}
-                <FormGroup row>
-                  <Col>
-                    <Input
-                      id="monthlyDues"
-                      type="text"
-                      onChange={handleMemberInput}
-                      value={monthlyDues}
-                      placeholder="Monthly Dues"
-                      size="sm"
-                    />
-                  </Col>
-                </FormGroup>{" "}
-                <Button type="submit" color="success">
-                  Update HomeOwner
-                </Button>{" "}
-              </Form>
-            )}
+            <Form onSubmit={updateMember}>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="firstName"
+                    type="text"
+                    onChange={handleMemberInput}
+                    value={firstName}
+                    placeholder={firstName}
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="lastName"
+                    type="text"
+                    onChange={handleMemberInput}
+                    value={lastName}
+                    placeholder="Last Name"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  {" "}
+                  <Input
+                    id="email"
+                    type="email"
+                    onChange={handleMemberInput}
+                    value={email}
+                    placeholder="email"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    onChange={handleMemberInput}
+                    value={phone}
+                    placeholder="Phone"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="address"
+                    type="text"
+                    onChange={handleMemberInput}
+                    value={address}
+                    placeholder="Street Address"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="city"
+                    type="text"
+                    onChange={handleMemberInput}
+                    value={city}
+                    placeholder="City"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="state"
+                    type="text"
+                    onChange={handleMemberInput}
+                    value={state}
+                    placeholder="State"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="zipcode"
+                    type="text"
+                    onChange={handleMemberInput}
+                    value={zipcode}
+                    placeholder="Zipcode"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col>
+                  <Input
+                    id="monthlyDues"
+                    type="text"
+                    onChange={handleMemberInput}
+                    value={monthlyDues}
+                    placeholder="Monthly Dues"
+                    size="sm"
+                  />
+                </Col>
+              </FormGroup>
+              <Button type="submit" color="success">
+                Add HomeOwner
+              </Button>{" "}
+            </Form>
           </ModalBody>
           <ModalFooter>
-            <Button
-              color="secondary"
-              onClick={() => toggleModal("showEditModal")}
-            >
+            <Button color="danger" onClick={() => toggleModal("showEditModal")}>
               Cancel
             </Button>
           </ModalFooter>

@@ -30,7 +30,7 @@ const DBTenantsTable = props => {
         <thead className="bg-green">
           <tr>
             <th className="th-sm">Name</th>
-            <th className="th-sm">Primary Phone</th>
+            <th className="th-sm">Phone</th>
             <th className="th-sm">Email</th>
           </tr>
         </thead>
@@ -38,7 +38,7 @@ const DBTenantsTable = props => {
           {props.homeowners.map(homeowner => {
             return (
               <tr key={homeowner.id}>
-                <td className="td-sm">{homeowner.fullName}</td>
+                <td className="td-sm">{homeowner.firstName} {homeowner.lastName}</td>
                 <td className="td-sm">{homeowner.phone}</td>
                 <td className="td-sm">{homeowner.email}</td>
               </tr>
