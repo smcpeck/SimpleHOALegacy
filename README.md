@@ -1,7 +1,8 @@
 # SimpleHOA
 
 SimpleHOA is an application to aid homeowner association managers. It automates the process of adding members, collection dues, creating work tickets, calendar events and managing financials.
-http://www.heirbloom.fun/
+
+http://www.simplehoa.org/
 
 <img align="left" title="Manage your HOA from an easy-to-use dashboard." src="https://rkportfolio-stuff.s3.amazonaws.com/SimpleHoa/SimpleHoa+dashboard.JPG" height="250" width="380"><img align="justify" title="See your HOA financials broken down by month." src="https://rkportfolio-stuff.s3.amazonaws.com/SimpleHoa/financials.JPG" height="250" width="380">
 
