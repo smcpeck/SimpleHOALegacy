@@ -51,7 +51,6 @@ class Maintenence extends React.Component {
             <tbody>
               {workTickets.map(ticket => {
                 let staffMember = this.filterStaff(staff, ticket.assignedTo);
-                console.log(staffMember);
                 return (
                   <tr key={staffMember.id}>
                     <td scope="row">{ticket.id}</td>

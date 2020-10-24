@@ -31,13 +31,11 @@ class Board extends React.Component {
   }
 
   handleDelete(selectedBoardMember) {
-    console.log(selectedBoardMember);
     return axios
       .delete(
         `api/deleteBoardMember/${selectedBoardMember.id}/${selectedBoardMember.homeOwner.id}`
       )
       .then(res => {
-        console.log("The board member was fired.", res.data);
         if (res.data.isDeleted) {
           this.props.getAllBoardMembers();
         }
@@ -52,7 +50,6 @@ class Board extends React.Component {
 
   addBoardMember(boardMemberData) {
     delete boardMemberData.homeowners;
-    console.log("hhhhhh", boardMemberData);
 
     axios
       .post("/api/addBoardMember", boardMemberData)
@@ -64,11 +61,10 @@ class Board extends React.Component {
         }
         return Swal.fire(`The home owner was added to the Board.`);
       })
-      .catch(err => console.log("error adding homeowner", err));
+      .catch(err => console.error("error adding homeowner", err));
   }
 
   render() {
-    console.log("BOARD PROPS", this.props);
     const { showAddModal, homeowners } = this.state;
     const { boardMembers } = this.props;
     return (

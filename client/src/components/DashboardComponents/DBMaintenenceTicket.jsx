@@ -27,7 +27,6 @@ class DBMaintenenceTicket extends Component {
   }
   //small
   handleSubmit(event) {
-    // console.log('DEMAINTENANCETICKETS props', this.props);
     const { hoaId } = this.props;
     const { title, description, assignedTo } = this.state;
     event.preventDefault();
@@ -46,7 +45,6 @@ class DBMaintenenceTicket extends Component {
       })
         .then(res => {
           Swal.fire("Your ticket has been created");
-          console.log(res);
           this.props.getOpenWorkTickets();
         })
         .catch(err => {

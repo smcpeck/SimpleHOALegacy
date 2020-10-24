@@ -41,15 +41,7 @@ class EspenseModal extends Component {
     });
   }
 
-  //   {
-  //   "hoaId": 86,
-  //     "accountId": 3627,
-  //       "amountPaid": 200,
-  //         "description": "September Dues"
-  // }
-
   handleSubmit(event) {
-    // console.log('DEMAINTENANCETICKETS props', this.props);
     event.preventDefault();
     if (
       this.state.payType.length === 0 ||

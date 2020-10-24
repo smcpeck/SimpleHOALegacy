@@ -32,7 +32,6 @@ const MemberList = props => {
             </thead>
             <tbody>
               {homeowners.map(homeowner => {
-                console.log("homeowner", homeowner);
                 return (
                   <tr key={homeowner.id}>
                     <td className="td-sm table-text">{homeowner.fullName}</td>

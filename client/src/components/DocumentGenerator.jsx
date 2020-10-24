@@ -75,7 +75,7 @@ class DocumentGenerator extends React.Component {
             }
             })
             .catch((error) => {
-                console.log("Problem With Get Revenues By Year", error);
+                console.error("Problem With Get Revenues By Year", error);
             })
     }
 
@@ -118,7 +118,7 @@ class DocumentGenerator extends React.Component {
                 }
             })
             .catch((error) => {
-                console.log("Problem With Get Expenses By Year", error);
+                console.error("Problem With Get Expenses By Year", error);
             })
     }
 

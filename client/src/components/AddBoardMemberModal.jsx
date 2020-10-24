@@ -40,7 +40,6 @@ class AddBoardModal extends React.Component {
   render() {
     const { accountId, position } = this.state;
     const { showModal, toggleModal, homeowners } = this.props;
-    // console.log('hooooommmbbbb', this.props)
     return (
       <div>
         <Modal

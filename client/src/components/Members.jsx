@@ -32,11 +32,10 @@ class MemberList extends React.Component {
     axios
       .get(`/api/getHomeowners/${hoaId}`)
       .then(homeOwnersRes => {
-        console.log("Homeowner", homeOwnersRes);
         this.setState({ homeOwners: homeOwnersRes.data });
       })
       .catch(error => {
-        console.log(error, "getHomeOwners");
+        console.error(error);
       });
   }
 
@@ -52,7 +51,6 @@ class MemberList extends React.Component {
     axios
       .post("/api/addHomeOwner", homeOwner)
       .then(res => {
-        console.log("ADDED HOMEOWNER", res);
         this.setState(prevState => ({
           homeOwners: prevState.homeOwners.concat(res.data),
           showAddModal: false
@@ -60,7 +58,7 @@ class MemberList extends React.Component {
         return Swal.fire(`The home owner was added.`);
       })
       .catch(error => {
-        console.log("HOMEOWNER WAS NOT ADDED", error);
+        console.error("HOMEOWNER WAS NOT ADDED", error);
       });
   }
 
@@ -73,7 +71,6 @@ class MemberList extends React.Component {
     axios
       .delete(`/api/removeHomeowner/${id}`)
       .then(res => {
-        console.log("The homeowner was sent to the void.", res.data);
         if (res.data.deleted) {
           this.setState({
             homeOwners: homeOwners.filter(homeowner => homeowner.id !== id)
@@ -90,7 +87,6 @@ class MemberList extends React.Component {
     axios
       .put(`/api/updateHomeowner/${selectedHomeowner.id}`, selectedHomeowner)
       .then(res => {
-        // console.log('UPDATE TIME', res);
         if (res.data.infoWasUpdated) {
           const homeOwnerIndex = homeOwners.findIndex(
             homeowner => homeowner.id === selectedHomeowner.id
@@ -99,7 +95,7 @@ class MemberList extends React.Component {
           this.setState({ homeOwners, showEditModal: false });
         }
       })
-      .catch(err => console.log("The selected member was not updated", err));
+      .catch(err => console.error("The selected member was not updated", err));
   }
 
   handleEditMemberInput(event) {

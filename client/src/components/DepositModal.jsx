@@ -41,15 +41,7 @@ class DepositModal extends Component {
     });
   }
 
-  //   {
-  //   "hoaId": 86,
-  //     "accountId": 3627,
-  //       "amountPaid": 200,
-  //         "description": "September Dues"
-  // }
-
   handleSubmit(event) {
-    // console.log('DEMAINTENANCETICKETS props', this.props);
     event.preventDefault();
     if (
       this.state.accountId.length === 0 ||
@@ -66,7 +58,6 @@ class DepositModal extends Component {
       })
         .then(response => {
           Swal.fire(`Your Deposit has been made`);
-          console.log(response);
         })
         .catch(err => {
           console.error(err);

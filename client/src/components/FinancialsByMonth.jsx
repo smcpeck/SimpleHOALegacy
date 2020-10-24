@@ -117,7 +117,7 @@ class FinancialsByMonth extends Component {
         });
       })
       .catch(error => {
-        console.log("Problem With Get Expenses By Year", error);
+        console.error("Problem With Get Expenses By Year", error);
       });
   }
 
@@ -159,7 +159,7 @@ class FinancialsByMonth extends Component {
         });
       })
       .catch(error => {
-        console.log("Problem With Get Revenues By Year", error);
+        console.error("Problem With Get Revenues By Year", error);
       });
   }
 
@@ -220,9 +220,7 @@ class FinancialsByMonth extends Component {
           expenseData[i] = expenses[key];
         }
       }
-    } // console.log(expenseData);
     return expenseData;
-    //loop through the expense object
   }
 
   //this gets the revenue data we need for the yearly chart
@@ -235,9 +233,7 @@ class FinancialsByMonth extends Component {
         }
       }
     }
-    console.log(revenueData);
     return revenueData;
-    //loop through the expense object
   }
 
   //this sets the state to bring in the results of the above functions
@@ -246,7 +242,7 @@ class FinancialsByMonth extends Component {
   }
 
   render(props) {
-    const { allExpenses, allRevenues } = this.state;
+    // const { allExpenses, allRevenues } = this.state;
     // let mappedRevenues = this.getRevenueData(allRevenues[2019]);
 
     // let mappedExpenses = this.getExpenseData(allExpenses[2019]);
@@ -254,7 +250,6 @@ class FinancialsByMonth extends Component {
     // console.log("mapped revenues: ", mappedRevenues);
     // this.mapFinancialsToChart(mappedExpenses, mappedRevenues);
     return (
-      // <div className="chart mb-2">
       <Bar
         data={this.state.chartData}
         height={300}
