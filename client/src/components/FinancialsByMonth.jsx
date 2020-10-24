@@ -222,6 +222,7 @@ class FinancialsByMonth extends Component {
       }
     return expenseData;
   }
+}
 
   //this gets the revenue data we need for the yearly chart
   getRevenueData(revenues) {
